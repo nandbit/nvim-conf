@@ -5,4 +5,5 @@ return {
     require("plugins.treesitter"),
     require("plugins.telescope"),
     require("plugins.mason"),
+    require("plugins.conform"),
 }
