@@ -20,14 +20,10 @@ return {
 			},
 		})
 
-		local lspconfig = require("lspconfig")
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
-
-		-- Add nvim-cmp capabilities
 		local capabilities = cmp_nvim_lsp.default_capabilities()
 
-		-- Lua LSP setup
-		lspconfig.lua_ls.setup({
+		vim.lsp.config("lua_ls", {
 			capabilities = capabilities,
 			settings = {
 				Lua = {
@@ -38,12 +34,12 @@ return {
 			},
 		})
 
-		-- Other servers
 		local servers = { "svelte", "ts_ls", "pyright", "zls", "html", "cssls" }
 		for _, server in ipairs(servers) do
-			lspconfig[server].setup({
+			vim.lsp.config(server, {
 				capabilities = capabilities,
 			})
 		end
 	end,
 }
+
