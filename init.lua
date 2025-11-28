@@ -20,6 +20,8 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { desc = "Go to implementation" })
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostics" })
+vim.keymap.set('n', '<C-d>', '5j', { noremap = true })
+vim.keymap.set('n', '<C-u>', '5k', { noremap = true })
 
 -- 3. Load plugins
 require("lazy").setup("plugins")
