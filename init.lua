@@ -35,3 +35,14 @@ vim.opt.expandtab = true
 vim.opt.termguicolors = true
 vim.opt.cursorline = true
 vim.opt.signcolumn = "yes" -- to avoid editor moving
+
+-- 5. Ruff (for Python)
+vim.lsp.config('ruff', {
+    init_options = {
+        settings = {
+            -- Ruff language server settings go here
+        }
+    }
+})
+
+vim.lsp.enable('ruff')
