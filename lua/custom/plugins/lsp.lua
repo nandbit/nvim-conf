@@ -131,6 +131,15 @@ return {
       --    https://github.com/pmizio/typescript-tools.nvim
       --
       -- But for many setups, the LSP (`ts_ls`) will work just fine
+      clangd = {
+        -- on_attach = function(client) client.server_capabilities.hoverProvider = false end,
+        cmd = {
+          'clangd',
+          '--clang-tidy',
+          '-j=5',
+          '--malloc-trim',
+        },
+      },
       ts_ls = {},
       stylua = {}, -- Used to format Lua code
 
@@ -196,6 +205,9 @@ return {
     vim.list_extend(ensure_installed, {
       -- You can add other tools here that you want Mason to install
       'clangd',
+      'clang-format',
+      'codelldb',
+      'cpplint',
     })
 
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }

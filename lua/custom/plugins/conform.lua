@@ -20,7 +20,7 @@ return {
       -- Disable "format_on_save lsp_fallback" for languages that don't
       -- have a well standardized coding style. You can add additional
       -- languages here or re-enable it for the disabled ones.
-      local disable_filetypes = { c = true, cpp = true }
+      local disable_filetypes = {}
       if disable_filetypes[vim.bo[bufnr].filetype] then
         return nil
       else
@@ -48,6 +48,8 @@ return {
         -- To organize the imports.
         'ruff_organize_imports',
       },
+      cpp = { 'clang-format' },
+      c = { 'clang-format' },
       -- Conform can also run multiple formatters sequentially
       -- python = { "isort", "black" },
       --
