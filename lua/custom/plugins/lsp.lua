@@ -216,5 +216,8 @@ return {
       vim.lsp.config(name, server)
       vim.lsp.enable(name)
     end
+
+    -- Key mappings
+    vim.keymap.set('n', '<leader>ff', vim.lsp.buf.code_action, { desc = 'Code Action' })
   end,
 }
