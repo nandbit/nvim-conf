@@ -51,7 +51,12 @@ return {
           -- Only run the linter in buffers that you can modify in order to
           -- avoid superfluous noise, notably within the handy LSP pop-ups that
           -- describe the hovered symbol using Markdown.
-          if vim.bo.modifiable then lint.try_lint() end
+          if not vim.bo.modifiable then return end
+
+          -- Check on every run so activating a virtual environment takes effect immediately.
+          if vim.bo.filetype == 'python' and vim.fn.executable 'flake8' == 0 then return end
+
+          lint.try_lint()
         end,
       })
     end,
