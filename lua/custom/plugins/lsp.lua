@@ -131,6 +131,15 @@ return {
       --    https://github.com/pmizio/typescript-tools.nvim
       --
       -- But for many setups, the LSP (`ts_ls`) will work just fine
+      rust_analyzer = {
+        settings = {
+          ['rust-analyzer'] = {
+            cargo = {
+              allFeatures = true,
+            },
+          },
+        },
+      },
       clangd = {
         -- on_attach = function(client) client.server_capabilities.hoverProvider = false end,
         cmd = {
