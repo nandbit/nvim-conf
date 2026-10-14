@@ -135,7 +135,10 @@ return {
         settings = {
           ['rust-analyzer'] = {
             cargo = {
-              allFeatures = true,
+              features = 'all',
+            },
+            check = {
+              command = 'clippy',
             },
           },
         },
@@ -222,6 +225,7 @@ return {
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
     for name, server in pairs(servers) do
+      server.capabilities = require('blink.cmp').get_lsp_capabilities(server.capabilities)
       vim.lsp.config(name, server)
       vim.lsp.enable(name)
     end
